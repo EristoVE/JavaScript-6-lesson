@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Case 1 Theme 6
+        </title>
+    </head>
+         <body>
+             <script>    
+                "use strict";
+
+                // Написать простой калькулятор, который запрашивает у пользователя два числа и
+                // операцию (+, -, *, /, %, **) и выводит результат в консоль. Запрос чисел и операций
+                // продолжается до тех пор, пока пользователь не нажмет кнопку «Отмена» в
+                // диалоговом окне prompt.
+
+                let a, b, c, operation
+                    
+                while (true) {
+                        
+                         if (a === void 0) {
+                            a = prompt('Введите первое число', '5');
+                        } else if (a == null) {
+                            a = alert('Вы отменили действие действие программы. ДОСВИДАНИЯ!');
+                            break;
+                        } else if (a.trim() == '') {
+                            a = alert('ОШИБКА!!! Вы ничего не ввели, либо нажали пробел повторите ввод');
+                            continue;
+                        } else if (isNaN(Number(a))) {
+                            a = alert('ОШИБКА!!! Вы ввели не число, повторите ввод');
+                            continue;
+                       
+                        } else if (b === void 0) {
+                            b = prompt('Введите второе число', '5');
+                        } else if (b == null) {
+                            b = alert('Вы отменили действие действие программы. ДОСВИДАНИЯ!');
+                            break;
+                        } else if (b.trim(Number(b)) == '') {
+                            b = alert('ОШИБКА!!! Вы ничего не ввели, либо нажали пробел повторите ввод');
+                            continue;
+                        } else if (isNaN(Number(b))) {
+                            b = alert('ОШИБКА!!! Вы ввели не число, повторите ввод');
+                            continue;
+
+                        } else if (operation === void 0) {
+                            operation = prompt('Введите операцию для чисел', '+');
+                        } else if (operation == '+') {
+                            a = Number(a)
+                            b = Number(b)
+                            c = a + b;
+                            console.log('Операция сложение, будет =', c);
+                            break
+                        } else if (operation == '-') {
+                            c = a - b;
+                            console.log('Операция вычитание, будет =', c);
+                            break
+                        } else if (operation == '*') {
+                            c = a * b;
+                            console.log('Операция произведние, будет =', c);
+                            break
+                        } else if (operation == '/') {
+                            c = a / b;
+                            console.log('Операция деление, будет =', c);
+                            break
+                        } else {
+                            break
+                        } 
+                    }
+          
+             </script>
+          </body>
+</html>

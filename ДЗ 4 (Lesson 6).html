@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Case 4
+        </title>
+    </head>
+        <body>
+            <script>
+                'use strict';
+
+                // Определить даты (месяц и год) всех пятниц 13-е из диапазона введенных
+                // пользователем дат, включая границы введенного диапазона. Осуществить
+                // проверку корректности вводимых пользователем дат. В случае некорректно
+                // введенных данных сообщать об ошибке и заново запрашивать у пользователя
+                // ввод данных. Решить задачу, используя цикл с предусловием.
+
+                let year;
+                 
+                while (true) {
+
+                    if (typeof year === 'undefined') {
+                         year = prompt('Введиде интересующий год', '2019');
+                    } else if (year == null) {
+                        year = alert('Вы отменили действие программы. ВСЕГО ДОБРОГО!!!');
+                        break;
+                    } else if (year.trim() == '') {
+                        year = alert('ОШИБКА!!! Вы ничего не ввели, либо нажали пробел повторите ввод');
+                        continue;
+                    } else if (isNaN(Number(year))) {
+                        year = alert('ОШИБКА!!! Вы ввели не число, повторите ввод');
+                        continue;
+                    } else if (!Number.isInteger( Number(year) )) {
+                        year = alert('ОШИБКА!!! Вы ввели ДРОБНОЕ число, повторите ввод');
+                        continue;  
+                    } else if (Number(year) <= 0) {
+                        year = alert('ОШИБКА!!! Вы ввели ОТРИЦАТЕЛЬНОЕ либо НУЛЕВОЕ число,' +
+                        ' повторите ввод');
+                        continue;
+                    } else {
+                        break;
+                    };
+                };
+                
+                function GetDay(day) {
+                    this.day = day;
+ 
+                    this.getOfYear = function (year) {
+                        let result = [], iterator = getDay(year, this.day), date;
+ 
+                        while ((date = iterator.next().value)) {
+                            result.push(date);
+                        };
+ 
+                        return result;
+                    };
+ 
+                    function* getDay(year, day) {
+                        let max = 12, month = 0;
+ 
+                        for (month = 0; month < max; month++) {
+                            let date = new Date(year, month, day);
+                            if (date.getDay() === 5) {
+                                yield date;
+                            };
+                        };
+                    };
+                };
+ 
+                let getDay = new GetDay(13);
+                alert(getDay.getOfYear(year));
+                            
+            </script>
+        </body>
+</html>

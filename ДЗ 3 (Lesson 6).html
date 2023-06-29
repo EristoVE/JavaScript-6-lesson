@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Case 3
+        </title>
+    </head>
+        <body>
+            <script>
+                'use strict';
+
+                // Вывести в консоль таблицу умножения чисел от 1 до 9. Решить задачу, используя
+                // вложенные циклы со счетчиком
+
+                let multiplicationTable = '';
+
+                for (let i = 1; i <= 9; i++) {
+
+                    let tableVariant = '   ';
+                
+                    for (let j = 1; j <= 9; j++) {
+
+                        tableVariant = tableVariant + j + ' x ' + i + ' = ' + j*i + '      ';
+                        // console.log(`${i} x ${j} = ${i * j}`); // выведет в строку
+                    } 
+
+                    multiplicationTable += tableVariant + '\n'
+                    //console.log('\n');
+                }  
+                console.log(multiplicationTable);  
+                      
+            </script>
+        </body>
+</html>
